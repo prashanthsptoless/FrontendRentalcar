@@ -1,5 +1,7 @@
 #  :key:  Rentalcar Frontend Part
-
+<p 
+  <img src="https://github.com/SafiyeMermer/FrontendRentalcar/blob/master/images/1.JPG"  />
+</p><br/>
 
 ### :star2: Angular
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
