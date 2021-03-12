@@ -30,3 +30,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## :star2: RentalCar Website Tables
 
 ![alt text](https://github.com/SafiyeMermer/FrontendRentalcar/blob/master/images/4.JPG)
+
+## :star2: Contact
+<a  href="https://www.linkedin.com/in/safiye-mermer-433860188?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BHeHWRXPwQgiqvnZGqIYUAQ%3D%3D"><img width="80" src="https://image.flaticon.com/icons/png/512/174/174857.png"></a>
