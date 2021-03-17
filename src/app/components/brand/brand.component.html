@@ -1,7 +1,13 @@
-<tr>
+<li (click) ="setAllBrand()"
+    routerLink="/cars"
+    [class] = "getAllCar()"
+    
+    ><b>Brands</b></li>
 
-</tr>
-<li class="list-group-item active, list-group-item-danger " aria-current="true" ><b>Brands</b></li>
-<ul class="list-group" *ngFor="let brand of brands">
-    <li class="list-group-item"><b>{{brand.id}}</b>.{{brand.brandName}}</li>
+<ul class="list-group"
+    (click) = "setCurrentBrand(brand)" 
+    routerLink="/cars/brand/{{brand.id}}"
+    *ngFor="let brand of brands">
+    <li [class]="getCurrentBrandClass(brand)"><b>{{brand.id}}</b>.{{brand.brandName}}</li>
 </ul>
+<h5 *ngIf="currentBrand">Your choose: <b>{{currentBrand.brandName}}</b></h5>

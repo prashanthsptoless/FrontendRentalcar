@@ -11,7 +11,7 @@
 
 </header>
 
-<table *ngIf="dataLoaded!=false" class="table">
+<table *ngIf="dataLoaded!=false" class="table table-hover">
 
     <thead class="table table-sm table-dark">
         <tr>
@@ -25,9 +25,9 @@
         </tr>
     </thead>
 
-    <tbody>
-        <tr *ngFor="let car of cars">
-            <td><strong>{{car.carId}}</strong></td>
+    <tbody >
+        <tr (click) = "setCarDetail(car)" *ngFor="let car of cars" routerLink="/cars/car/{{car.id}}">
+            <td><strong>{{car.id}}</strong></td>
             <td>{{car.carName}}</td>
             <td>{{car.brandName}}</td>
             <td>{{car.colorName}}</td>
@@ -38,3 +38,4 @@
     </tbody>
 
 </table>
+

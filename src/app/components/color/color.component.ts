@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Color } from 'src/app/models/color';
-import { ColorResponseModel } from 'src/app/models/colorResponseModel';
 import { ColorService } from 'src/app/services/color.service';
 
 @Component({
@@ -12,16 +12,25 @@ export class ColorComponent implements OnInit {
 
   colors:Color[] = [];
   
-  colorResponseModel:ColorResponseModel = {
-    data:this.colors,
-    message:"",
-    success:true
-  }
-
-  constructor(private colorService:ColorService) { }
+  currentColor:Color;
+  allColor:Color;
+  constructor(private colorService:ColorService, private activeRoute:ActivatedRoute,private router:Router) { }
 
   ngOnInit(): void {
     this.getColors();
+  }
+
+  setCurrentColor(color:Color)
+  {
+    this.currentColor = color;
+  
+    
+  }
+  setAllColor()
+  {
+    this.currentColor = this.allColor;
+  
+    
   }
 
   getColors()
@@ -29,8 +38,24 @@ export class ColorComponent implements OnInit {
     this.colorService.getColors().subscribe((response) => {
       this.colors = response.data;
     });
-    
+  }
 
+  getCarByColor(color:Color)
+  {
+    if(this.currentColor == color)
+    {
+      return "list-group-item active, list-group-item-danger"
+    }
+    return "list-group-item"
+
+  }
+  getAllCar()
+  {
+    if(!this.currentColor)
+    {
+      return "list-group-item active, list-group-item-danger" 
+    }
+    return "list-group-item"
   }
 
 }

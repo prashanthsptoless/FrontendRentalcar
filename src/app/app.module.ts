@@ -10,6 +10,8 @@ import { ColorComponent } from './components/color/color.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { RentalcarComponent } from './components/rentalcar/rentalcar.component';
+import { CarDetailComponent } from './components/car-detail/car-detail.component';
+import { SafePipe } from './safe.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,10 @@ import { RentalcarComponent } from './components/rentalcar/rentalcar.component';
     ColorComponent,
     CustomerComponent,
     NaviComponent,
-    RentalcarComponent
+    RentalcarComponent,
+    CarDetailComponent,
+    SafePipe,
+
   ],
   imports: [
     BrowserModule,

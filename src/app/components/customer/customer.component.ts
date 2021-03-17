@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/app/models/customer';
-import { CustomerResponseModel } from 'src/app/models/customerResponseModel';
 import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
@@ -12,11 +11,7 @@ export class CustomerComponent implements OnInit {
   
   customers : Customer[] = [];
   dataLoaded=false;
-  customerResponseModel:CustomerResponseModel = {
-    data:this.customers,
-    message:"",
-    success:true
-  };
+
 
   constructor(private customerService:CustomerService) { }
 

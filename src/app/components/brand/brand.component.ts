@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Brand } from 'src/app/models/brand';
-import { BrandResponseModel } from 'src/app/models/brandResponseModel';
 import { BrandService } from 'src/app/services/brand.service';
-
 
 @Component({
   selector: 'app-brand',
@@ -10,28 +9,56 @@ import { BrandService } from 'src/app/services/brand.service';
   styleUrls: ['./brand.component.css']
 })
 export class BrandComponent implements OnInit {
-  brands:Brand[] = [];
-  dataLoaded = false;
-
-  brandResponseModel:BrandResponseModel = {
-    data:this.brands,
-    message:"",
-    success:true
-  };
-
-  constructor(private brandService:BrandService) { }
+  brands : Brand[] = [];
+  currentBrand : Brand ;
+  allBrand : Brand ;
+  constructor(private brandService:BrandService,private activatedRoute:ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void {
     this.getBrands();
   }
 
+  setCurrentBrand(brand:Brand)
+  {
+    this.currentBrand = brand;
+  
+   
+  }
+  setAllBrand()
+  {
+    this.currentBrand = this.allBrand;
+  
+    
+    
+  }
   getBrands(){
     this.brandService.getBrands().subscribe((response) => 
     {
       this.brands = response.data;
-      this.dataLoaded = true;
+    
     });
     }
+  getCurrentBrandClass(brand:Brand)
+  {
+    if(this.currentBrand == brand)
+    {
+      return "list-group-item active, list-group-item-danger"
+    }
+    else{
+      return "list-group-item"
+    }
+  }
+  getAllCar()
+  {
+    if(!this.currentBrand)
+    {
+      return "list-group-item active, list-group-item-danger" 
+    }
+    return "list-group-item"
+  }
+
+
+
 
   }
 
