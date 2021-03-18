@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CarDetail } from 'src/app/models/car-detail';
 import { CarDetailService } from 'src/app/services/car-detail.service';
-import { environment } from 'src/environments/environment';
+import { CarService } from 'src/app/services/car.service';
 
 @Component({
   selector: 'app-car-detail',
@@ -11,11 +11,9 @@ import { environment } from 'src/environments/environment';
 })
 export class CarDetailComponent implements OnInit {
 
-
-  path = 'https://localhost:44319/';
-  imageBasePath = environment.baseUrl;
+  path = "https://localhost:44319/Images/";
   carDetail:CarDetail;
-  constructor(private carDetailService:CarDetailService, private activatedRoute:ActivatedRoute) { }
+  constructor(private carDetailService:CarDetailService, private activatedRoute:ActivatedRoute, private carService:CarService) { }
 
   ngOnInit(): void {
   
@@ -35,14 +33,24 @@ export class CarDetailComponent implements OnInit {
     {
       this.carDetail = response.data;
 
+
     })
   }
-
-  getImagePath(imagepath:string)
+  getImagePath(image:string)
   {
-    let newPath = this.path + imagepath;
+    let newPath:string = this.path + image;
     return newPath; 
   }
+  getBack()
+  {
+    this.carService.getCars();
+  }
+
+
+
+
+
+
 
   
 

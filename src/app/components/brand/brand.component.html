@@ -1,4 +1,8 @@
-<li (click) ="setAllBrand()"
+<tr>
+
+    
+</tr>
+<li class="list-group-item info" (click) ="setAllBrand()"
     routerLink="/cars"
     [class] = "getAllCar()"
     
@@ -11,3 +15,4 @@
     <li [class]="getCurrentBrandClass(brand)"><b>{{brand.id}}</b>.{{brand.brandName}}</li>
 </ul>
 <h5 *ngIf="currentBrand">Your choose: <b>{{currentBrand.brandName}}</b></h5>
+

@@ -2,7 +2,7 @@
 
 
 </tr>
-<li (click)="setAllColor()" 
+<li class="list-group-item info" (click)="setAllColor()" 
     [class]="getAllCar()"
     routerLink = "/cars"
     aria-current="true" ><b>Colors</b></li>
@@ -12,3 +12,4 @@
     *ngFor="let color of colors">
     <li [class]="getCarByColor(color)"><b>{{color.id}}</b>.{{color.colorName}}</li>
 </ul>
+<h5 *ngIf="currentColor">Your choose: <b>{{currentColor.colorName}}</b></h5>

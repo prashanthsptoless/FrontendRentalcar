@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { CarDetail } from '../models/car-detail';
 import { ItemResponseModel } from '../models/itemResponseModel';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -19,6 +18,9 @@ export class CarDetailService {
     let newPath = this.apiUrl + "cars/getdetailfor?carId=" + carId;
     return this.httpClient.get<ItemResponseModel<CarDetail>>(newPath);
   }
+
+  
+  
 
   
 

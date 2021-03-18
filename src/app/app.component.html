@@ -1,18 +1,27 @@
-<div class="container">
-    <app-navi></app-navi>
-    <div class="row">
-        <div class="col-md-3">
-            <app-brand></app-brand>
-            <tr>
+<div>
+    <div class="main-wrapper arkaplanrengi"></div>
+    <div class="container">
+        <app-navi></app-navi>
+        <div class="row">
+            <div class="col-md-4">
+                <app-brand></app-brand>
+                <tr>
+
+                </tr>
+                <app-color></app-color>
+                <tr>
 
 
-            </tr>
-            <app-color></app-color>
-        </div>
-        <div class="col-md-9">
-            <router-outlet></router-outlet>
-            <app-rentalcar></app-rentalcar>
-            <app-customer></app-customer>
+                </tr>
+
+                
+
+            </div>
+            <div class="col-md-8">
+                <router-outlet></router-outlet>
+            </div>
+            
+            
         </div>
     </div>
 </div>

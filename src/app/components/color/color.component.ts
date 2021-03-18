@@ -44,7 +44,7 @@ export class ColorComponent implements OnInit {
   {
     if(this.currentColor == color)
     {
-      return "list-group-item active, list-group-item-danger"
+      return "list-group-item active, list-group-item-info"
     }
     return "list-group-item"
 
@@ -53,7 +53,7 @@ export class ColorComponent implements OnInit {
   {
     if(!this.currentColor)
     {
-      return "list-group-item active, list-group-item-danger" 
+      return "list-group-item active, list-group-item-info" 
     }
     return "list-group-item"
   }

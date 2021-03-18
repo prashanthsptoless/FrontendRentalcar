@@ -1,41 +1,28 @@
-<div *ngIf="dataLoaded==false" class="spinner-border text-danger" role="status">
-    <span class="visually-hidden">Loading...</span>
+<tr>
+
+</tr>
+<div class="p-3 mb-2 bg-info text-white" style="text-align: center;"><h4 style="text-align: center;"><b>CAR LIST</b></h4></div>
+
+<div class="row" *ngIf="dataLoaded==true">
+    <div *ngFor="let carDetail of carDetails" class="card" display:inline-block style="width: 18rem;">
+        <img [src]="getImagePath(carDetail.imagePath)" class=" card-img-top" width="320" height="200">
+        <div class="card-body">
+            <h5 class="card-title d-flex justify-content-center">{{carDetail.carName}}</h5>
+            <p class="card-text d-flex justify-content-center"><b>Description: </b> {{carDetail.description}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><b>Color: </b> {{carDetail.colorName}}</li>
+            <li class="list-group-item"><b>Brand: </b> {{carDetail.brandName}}</li>
+            <li class="list-group-item"><b>Model Year:</b> {{carDetail.modelYear}}</li>
+            <li class="list-group-item"><b>Daily Price: $</b> {{carDetail.dailyPrice}}</li>
+        </ul>
+        <div class="card-body">
+            <section style="float:left">
+                <button routerLink="/cars/car/{{carDetail.carId}}" type="button" class="btn btn-info">Details</button>
+            </section>
+            <section style="float: right">
+                <button type="button" class="btn btn-info">Rent</button>
+            </section>
+        </div>
+    </div>
 </div>
-
-<header *ngIf="dataLoaded!=false">
-    <tr>
-        <td>
-            <h5><strong>Cars</strong></h5>
-        </td>
-    </tr>
-
-</header>
-
-<table *ngIf="dataLoaded!=false" class="table table-hover">
-
-    <thead class="table table-sm table-dark">
-        <tr>
-            <th scope="col"> No</th>
-            <th scope="col">Car Name</th>
-            <th scope="col">Brand Name</th>
-            <th scope="col">Color Name</th>
-            <th scope="col">Model Year</th>
-            <th scope="col">Daily Price</th>
-            <th scope="col">Description</th>
-        </tr>
-    </thead>
-
-    <tbody >
-        <tr (click) = "setCarDetail(car)" *ngFor="let car of cars" routerLink="/cars/car/{{car.id}}">
-            <td><strong>{{car.id}}</strong></td>
-            <td>{{car.carName}}</td>
-            <td>{{car.brandName}}</td>
-            <td>{{car.colorName}}</td>
-            <td>{{car.modelYear}}</td>
-            <td>{{car.dailyPrice}}$</td>
-            <td>{{car.description}}</td>
-        </tr>
-    </tbody>
-
-</table>
-

@@ -42,7 +42,7 @@ export class BrandComponent implements OnInit {
   {
     if(this.currentBrand == brand)
     {
-      return "list-group-item active, list-group-item-danger"
+      return "list-group-item active, list-group-item-info"
     }
     else{
       return "list-group-item"
@@ -52,7 +52,7 @@ export class BrandComponent implements OnInit {
   {
     if(!this.currentBrand)
     {
-      return "list-group-item active, list-group-item-danger" 
+      return "list-group-item active, list-group-item-info" 
     }
     return "list-group-item"
   }
